@@ -8,14 +8,45 @@
 
 import UIKit
 
+struct URLToGo {
+    static var targetURL = "http://tednewardsandbox.site44.com/questions.json"
+}
+
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    
+    func dismissAlert(alert: UIAlertAction!) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     @IBAction func settings(sender: AnyObject) {
-        let alert = UIAlertController(title: "Settings", message: "Settings go here", preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-        self.presentViewController(alert, animated: true, completion: nil)
+        let alertController : UIAlertController = UIAlertController(title: "Alert!", message: "Settings go here.", preferredStyle: .Alert)
+        let okAction : UIAlertAction = UIAlertAction(title: "Okay", style: .Default, handler: dismissAlert)
+        
+        alertController.addAction(okAction)
+        
+        alertController.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
+            textField.placeholder = "Enter URL to retrieve information."
+        }
+        
+        let retrieveAction : UIAlertAction = UIAlertAction(title: "Check Now", style: .Cancel, handler: {[weak self]
+            (paramAction:UIAlertAction!) in
+            if let textFields = alertController.textFields {
+                let theTextFields = textFields as [UITextField]
+                let enteredText = theTextFields[0].text
+                if enteredText != nil {
+                    URLToGo.targetURL = enteredText!
+                } else {
+                    URLToGo.targetURL = "http://tednewardsandbox.site44.cÇom/questions.json"
+                }
+                self!.tableView.reloadData()
+            }
+            })
+        
+        alertController.addAction(retrieveAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     var subjects : [String] = ["Mathematics", "Marvel Super Heroes", "Science"]
     var subtitle : [String] = ["1 + 1 = 2", "I'm not Batman", "MITOCHONDRIA = POWERHOUSE"]
@@ -46,8 +77,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 return cell
     }
     
-
-
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let SecondVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionC") as! QuestionController
+        SecondVC.subjectTitle = subjects[indexPath.row]
+        self.presentViewController(SecondVC, animated: false, completion: nil)
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
