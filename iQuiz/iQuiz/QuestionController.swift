@@ -27,7 +27,6 @@ class QuestionController: UIViewController {
     var b2 = false
     var b3 = false
     var b4 = false
-    var topicnumber: Int!
     var right = 0
     var total = 0
     var topic : Topic!
@@ -79,9 +78,33 @@ class QuestionController: UIViewController {
     
     @IBAction func ButtonAnswerAction(sender: AnyObject) {
         if(b1 || b2 || b3 || b4) {
-            total += 1
             let ThirdVC = self.storyboard?.instantiateViewControllerWithIdentifier("AnswerC") as! AnswerController
             ThirdVC.subjectTitle = subjectTitle
+            ThirdVC.Q = topic!.questions[total].text
+            ThirdVC.A = topic!.questions[total].answer
+            if(b1) {
+                ThirdVC.Guessed = topic!.questions[total].choices[0]
+                if(topic!.questions[total].choices[0] == topic!.questions[total].answer) {
+                    right += 1
+                }
+            } else if(b2) {
+                ThirdVC.Guessed = topic!.questions[total].choices[1]
+                if(topic!.questions[total].choices[1] == topic!.questions[total].answer) {
+                    right += 1
+                }
+            } else if(b3) {
+                ThirdVC.Guessed = topic!.questions[total].choices[2]
+                if(topic!.questions[total].choices[2] == topic!.questions[total].answer) {
+                    right += 1
+                }
+            } else {
+                ThirdVC.Guessed = topic!.questions[total].choices[3]
+                if(topic!.questions[total].choices[3] == topic!.questions[total].answer) {
+                    right += 1
+                }
+            }
+            
+            total += 1
             self.presentViewController(ThirdVC, animated: false, completion: nil)
         }
     }

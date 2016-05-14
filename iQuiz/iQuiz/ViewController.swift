@@ -96,7 +96,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let SecondVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionC") as! QuestionController
         SecondVC.subjectTitle = subjects[indexPath.row]
-        SecondVC.topicnumber = indexPath.row
         SecondVC.topic = inputData.topic[indexPath.row]
         self.presentViewController(SecondVC, animated: false, completion: nil)
     }
