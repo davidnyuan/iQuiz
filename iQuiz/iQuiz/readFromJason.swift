@@ -10,18 +10,20 @@ import Foundation
 
 
 
-class Data {
+class fromJson {
     
     var targetURL = URLToGo.targetURL
     
     var topicsInQuiz : [Topic] = [Topic]()
     
+    var topic : [Topic] = []
+    
     var names : [String] = []
     var descrs : [String] = []
     
-    var scienceQs : [Question] = []
-    var mathQs : [Question] = []
-    var marvelQs : [Question] = []
+    // var scienceQs : [Question] = []
+    // var mathQs : [Question] = []
+    // var marvelQs : [Question] = []
     
     func checkLocalStorage() {
         //Check if json exists
@@ -54,15 +56,26 @@ class Data {
                     guard let subject = json as? [[String : AnyObject]] else {return}
                     
                     for s in subject {
-                        if let name = s["title"] as? String{
-                            self.names.append(name)
+                        let name = s["title"] as? NSString
+                        self.names.append(String(name))
+                        let desc = s["desc"] as? NSString
+                        self.descrs.append(String(desc))
+                        let questions = s["questions"] as! NSArray
+
+                        var questionObjs = [Question]()
+                        for q in questions {
+                            let qtext = q["text"] as? NSString
+                            let qanswer = q["answer"] as? NSString
+                            let qanswers = q["answers"] as! NSArray
+                            var answerstringarray = [String]()
+                            for individual in qanswers {
+                                answerstringarray.append(String(individual))
+                            }
+                            let inputquestion : Question = Question(text: String(qtext), answer: String(qanswer!), choices: answerstringarray)
+                            questionObjs.append(inputquestion)
                         }
-                        if let desc = s["desc"] as? String {
-                            self.descrs.append(desc)
-                        }
-                        //                        if let questions = s["questions"] {
-                        //                            self.questions.append(questions)
-                        //                        }
+                        let inputtopic: Topic = Topic(subject: String(name), desc: String(desc), questions: questionObjs)
+                        self.topic.append(inputtopic)
                     }
                     
                     completionHandler()

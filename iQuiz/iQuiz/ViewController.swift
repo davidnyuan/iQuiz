@@ -14,6 +14,8 @@ struct URLToGo {
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    let inputData = fromJson()
+    
     @IBOutlet weak var tableView: UITableView!
     
     func dismissAlert(alert: UIAlertAction!) {
@@ -48,12 +50,26 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    var subjects : [String] = ["Mathematics", "Marvel Super Heroes", "Science"]
-    var subtitle : [String] = ["1 + 1 = 2", "I'm not Batman", "MITOCHONDRIA = POWERHOUSE"]
+    var subjects : [String] = []
+    var subtitle : [String] = []
     var images = [UIImage(named: "pi"), UIImage(named: "ROcket"), UIImage(named: "DNA")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        self.inputData.HTTPRequest {
+            
+            self.subjects = self.inputData.names
+            self.subtitle = self.inputData.descrs
+            
+            self.tableView.reloadData()
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            self.tableView.reloadData()
+        })
     }
     
     // MARK: - Table view data source
@@ -80,10 +96,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let SecondVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionC") as! QuestionController
         SecondVC.subjectTitle = subjects[indexPath.row]
+        SecondVC.topicnumber = indexPath.row
+        SecondVC.topic = inputData.topic[indexPath.row]
         self.presentViewController(SecondVC, animated: false, completion: nil)
     }
-    
-    
     
     /*
     // MARK: - Navigation

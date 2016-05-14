@@ -14,10 +14,6 @@ class QuestionController: UIViewController {
     @IBOutlet weak var Qsubject: UILabel!
     var subjectTitle = ""
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        Qsubject!.text! = subjectTitle
-    }
     
     @IBOutlet weak var QuestionLabel: UILabel!
     
@@ -31,8 +27,16 @@ class QuestionController: UIViewController {
     var b2 = false
     var b3 = false
     var b4 = false
+    var topicnumber: Int!
     var right = 0
     var total = 0
+    var topic : Topic!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        Qsubject!.text! = subjectTitle
+        QuestionLabel.text = topic?.questions[total].text
+    }
     
     func buttonClicked() {
         b1 = false
