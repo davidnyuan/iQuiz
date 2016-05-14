@@ -23,6 +23,11 @@ class AnswerController: UIViewController {
     
     var Guessed = ""
     
+    var right = 0
+    var totalGuessed = 0
+    var totalQuestions = 0
+    var topic : Topic!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ASubject!.text! = subjectTitle
@@ -40,9 +45,22 @@ class AnswerController: UIViewController {
     @IBOutlet weak var NextButton: UIButton!
     
     @IBAction func BackButtonAction(sender: AnyObject) {
+        let FirstVC = self.storyboard?.instantiateViewControllerWithIdentifier("home") as! ViewController
+        self.presentViewController(FirstVC, animated: false, completion: nil)
     }
     
     @IBAction func NextButtonAction(sender: AnyObject) {
+        if(totalGuessed < totalQuestions) {
+            let SecondVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionC") as! QuestionController
+            SecondVC.totalGuessed = self.totalGuessed
+            SecondVC.totalQuestions = topic!.questions.count
+            SecondVC.topic = self.topic
+            SecondVC.subjectTitle = self.subjectTitle
+            SecondVC.right = self.right
+            self.presentViewController(SecondVC, animated: false, completion: nil)
+        } else {
+            NSLog("bump")
+        }
     }
     
 }

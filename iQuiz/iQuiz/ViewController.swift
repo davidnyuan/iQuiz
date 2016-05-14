@@ -97,6 +97,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let SecondVC = self.storyboard?.instantiateViewControllerWithIdentifier("QuestionC") as! QuestionController
         SecondVC.subjectTitle = subjects[indexPath.row]
         SecondVC.topic = inputData.topic[indexPath.row]
+        SecondVC.totalQuestions = inputData.topic[indexPath.row].questions.count
         self.presentViewController(SecondVC, animated: false, completion: nil)
     }
     

@@ -28,17 +28,18 @@ class QuestionController: UIViewController {
     var b3 = false
     var b4 = false
     var right = 0
-    var total = 0
+    var totalGuessed = 0
+    var totalQuestions = 0
     var topic : Topic!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         Qsubject!.text! = subjectTitle
-        QuestionLabel.text = topic!.questions[total].text
-        Button1.setTitle(topic!.questions[total].choices[0], forState: UIControlState.Normal)
-        Button2.setTitle(topic!.questions[total].choices[1], forState: UIControlState.Normal)
-        Button3.setTitle(topic!.questions[total].choices[2], forState: UIControlState.Normal)
-        Button4.setTitle(topic!.questions[total].choices[3], forState: UIControlState.Normal)
+        QuestionLabel.text = topic!.questions[totalGuessed].text
+        Button1.setTitle(topic!.questions[totalGuessed].choices[0], forState: UIControlState.Normal)
+        Button2.setTitle(topic!.questions[totalGuessed].choices[1], forState: UIControlState.Normal)
+        Button3.setTitle(topic!.questions[totalGuessed].choices[2], forState: UIControlState.Normal)
+        Button4.setTitle(topic!.questions[totalGuessed].choices[3], forState: UIControlState.Normal)
     }
     
     func buttonClicked() {
@@ -80,31 +81,34 @@ class QuestionController: UIViewController {
         if(b1 || b2 || b3 || b4) {
             let ThirdVC = self.storyboard?.instantiateViewControllerWithIdentifier("AnswerC") as! AnswerController
             ThirdVC.subjectTitle = subjectTitle
-            ThirdVC.Q = topic!.questions[total].text
-            ThirdVC.A = topic!.questions[total].answer
+            ThirdVC.Q = topic!.questions[totalGuessed].text
+            ThirdVC.A = topic!.questions[totalGuessed].answer
             if(b1) {
-                ThirdVC.Guessed = topic!.questions[total].choices[0]
-                if(topic!.questions[total].choices[0] == topic!.questions[total].answer) {
+                ThirdVC.Guessed = topic!.questions[totalGuessed].choices[0]
+                if(topic!.questions[totalGuessed].choices[0] == topic!.questions[totalGuessed].answer) {
                     right += 1
                 }
             } else if(b2) {
-                ThirdVC.Guessed = topic!.questions[total].choices[1]
-                if(topic!.questions[total].choices[1] == topic!.questions[total].answer) {
+                ThirdVC.Guessed = topic!.questions[totalGuessed].choices[1]
+                if(topic!.questions[totalGuessed].choices[1] == topic!.questions[totalGuessed].answer) {
                     right += 1
                 }
             } else if(b3) {
-                ThirdVC.Guessed = topic!.questions[total].choices[2]
-                if(topic!.questions[total].choices[2] == topic!.questions[total].answer) {
+                ThirdVC.Guessed = topic!.questions[totalGuessed].choices[2]
+                if(topic!.questions[totalGuessed].choices[2] == topic!.questions[totalGuessed].answer) {
                     right += 1
                 }
             } else {
-                ThirdVC.Guessed = topic!.questions[total].choices[3]
-                if(topic!.questions[total].choices[3] == topic!.questions[total].answer) {
+                ThirdVC.Guessed = topic!.questions[totalGuessed].choices[3]
+                if(topic!.questions[totalGuessed].choices[3] == topic!.questions[totalGuessed].answer) {
                     right += 1
                 }
             }
-            
-            total += 1
+            totalGuessed += 1
+            ThirdVC.totalGuessed = self.totalGuessed
+            ThirdVC.totalQuestions = topic!.questions.count
+            ThirdVC.topic = self.topic
+            ThirdVC.right = self.right
             self.presentViewController(ThirdVC, animated: false, completion: nil)
         }
     }

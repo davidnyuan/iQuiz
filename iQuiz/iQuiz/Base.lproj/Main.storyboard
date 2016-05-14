@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="ugY-Fh-g65">
             <objects>
-                <viewController id="4ig-dA-M2x" customClass="ViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="home" id="4ig-dA-M2x" customClass="ViewController" customModule="iQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rZe-5d-6jH"/>
                         <viewControllerLayoutGuide type="bottom" id="uFr-ca-YoX"/>
@@ -95,13 +95,14 @@
                             <constraint firstItem="eoe-fy-yH1" firstAttribute="leading" secondItem="AW6-2C-vkM" secondAttribute="leading" id="fI5-XR-E9v"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="12w-zq-0P0"/>
                     <connections>
                         <outlet property="tableView" destination="eoe-fy-yH1" id="s4B-mA-gHF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6PA-H0-apy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="303" y="149"/>
+            <point key="canvasLocation" x="3223" y="157"/>
         </scene>
         <!--Question Controller-->
         <scene sceneID="M4Z-kZ-pK0">
@@ -218,6 +219,7 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="LOh-T1-lue"/>
                     <connections>
                         <outlet property="Button1" destination="MHb-6P-Gqe" id="diZ-My-5Y0"/>
                         <outlet property="Button2" destination="Dev-R0-UY7" id="wrh-8u-FDw"/>
@@ -230,7 +232,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtB-hP-o2J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="986" y="-391"/>
+            <point key="canvasLocation" x="3920" y="157"/>
         </scene>
         <!--Answer Controller-->
         <scene sceneID="sSI-YY-foL">
@@ -250,8 +252,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWA-Zw-JGa">
-                                <rect key="frame" x="265.5" y="141" width="69" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BWA-Zw-JGa">
+                                <rect key="frame" x="30" y="141" width="540" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -270,17 +272,16 @@
                                 <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="BackButtonAction:" destination="jnp-pb-twH" eventType="touchUpInside" id="59C-sg-fZV"/>
-                                    <segue destination="4ig-dA-M2x" kind="show" id="9C1-Ky-NeL"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right/Wrong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWL-8w-0aB">
-                                <rect key="frame" x="251.5" y="91" width="97" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6E0-MV-XtM">
+                                <rect key="frame" x="30" y="212" width="540" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6E0-MV-XtM">
-                                <rect key="frame" x="271.5" y="212" width="57" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Right/Wrong" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWL-8w-0aB">
+                                <rect key="frame" x="30" y="283" width="540" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -290,18 +291,24 @@
                         <constraints>
                             <constraint firstItem="hny-42-AnV" firstAttribute="trailing" secondItem="N0z-H6-xJg" secondAttribute="trailingMargin" id="13n-eT-LXV"/>
                             <constraint firstItem="6E0-MV-XtM" firstAttribute="centerX" secondItem="N0z-H6-xJg" secondAttribute="centerX" id="D4M-wt-26D"/>
+                            <constraint firstItem="6E0-MV-XtM" firstAttribute="leading" secondItem="N0z-H6-xJg" secondAttribute="leadingMargin" constant="10" id="GD2-j0-PXJ"/>
                             <constraint firstItem="BWA-Zw-JGa" firstAttribute="top" secondItem="hny-42-AnV" secondAttribute="bottom" constant="100" id="HJ9-mQ-Kes"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6E0-MV-XtM" secondAttribute="trailing" constant="10" id="HXT-3U-X16"/>
                             <constraint firstItem="PrN-e2-DRp" firstAttribute="top" secondItem="ySU-ol-n2c" secondAttribute="bottom" id="KG6-qW-wat"/>
-                            <constraint firstItem="KWL-8w-0aB" firstAttribute="top" secondItem="hny-42-AnV" secondAttribute="bottom" constant="50" id="KjI-No-a6E"/>
                             <constraint firstItem="PrN-e2-DRp" firstAttribute="top" secondItem="dYF-eB-RfE" secondAttribute="bottom" id="Nle-GY-Age"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BWA-Zw-JGa" secondAttribute="trailing" constant="10" id="OT5-C3-pDy"/>
+                            <constraint firstItem="KWL-8w-0aB" firstAttribute="centerX" secondItem="N0z-H6-xJg" secondAttribute="centerX" id="RxF-MV-f1R"/>
                             <constraint firstItem="6E0-MV-XtM" firstAttribute="top" secondItem="BWA-Zw-JGa" secondAttribute="bottom" constant="50" id="TRD-rF-vch"/>
                             <constraint firstItem="BWA-Zw-JGa" firstAttribute="centerX" secondItem="N0z-H6-xJg" secondAttribute="centerX" id="Vti-dM-RbC"/>
-                            <constraint firstItem="KWL-8w-0aB" firstAttribute="centerX" secondItem="N0z-H6-xJg" secondAttribute="centerX" id="g9L-BW-WKW"/>
+                            <constraint firstItem="KWL-8w-0aB" firstAttribute="leading" secondItem="N0z-H6-xJg" secondAttribute="leadingMargin" constant="10" id="a5E-qm-gIl"/>
                             <constraint firstItem="hny-42-AnV" firstAttribute="centerX" secondItem="N0z-H6-xJg" secondAttribute="centerX" id="gK9-wM-9KA"/>
                             <constraint firstItem="hny-42-AnV" firstAttribute="top" secondItem="bo8-hQ-o2Y" secondAttribute="bottom" id="h2Q-Ad-R1G"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KWL-8w-0aB" secondAttribute="trailing" constant="10" id="jnE-20-TlD"/>
+                            <constraint firstItem="KWL-8w-0aB" firstAttribute="top" secondItem="6E0-MV-XtM" secondAttribute="bottom" constant="50" id="oj4-cP-xAy"/>
                             <constraint firstItem="dYF-eB-RfE" firstAttribute="trailing" secondItem="N0z-H6-xJg" secondAttribute="trailingMargin" id="tOJ-yb-gAh"/>
                             <constraint firstItem="hny-42-AnV" firstAttribute="leading" secondItem="N0z-H6-xJg" secondAttribute="leadingMargin" id="wCJ-8W-KG0"/>
                             <constraint firstItem="ySU-ol-n2c" firstAttribute="leading" secondItem="N0z-H6-xJg" secondAttribute="leadingMargin" id="wTH-UU-wG9"/>
+                            <constraint firstItem="BWA-Zw-JGa" firstAttribute="leading" secondItem="N0z-H6-xJg" secondAttribute="leadingMargin" constant="10" id="yO7-Me-dwY"/>
                         </constraints>
                     </view>
                     <connections>
@@ -315,7 +322,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5q-L0-U2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1650" y="138"/>
+            <point key="canvasLocation" x="4590" y="157"/>
         </scene>
     </scenes>
 </document>
