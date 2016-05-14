@@ -35,7 +35,11 @@ class QuestionController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         Qsubject!.text! = subjectTitle
-        QuestionLabel.text = topic?.questions[total].text
+        QuestionLabel.text = topic!.questions[total].text
+        Button1.setTitle(topic!.questions[total].choices[0], forState: UIControlState.Normal)
+        Button2.setTitle(topic!.questions[total].choices[1], forState: UIControlState.Normal)
+        Button3.setTitle(topic!.questions[total].choices[2], forState: UIControlState.Normal)
+        Button4.setTitle(topic!.questions[total].choices[3], forState: UIControlState.Normal)
     }
     
     func buttonClicked() {

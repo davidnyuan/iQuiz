@@ -56,22 +56,20 @@ class fromJson {
                     guard let subject = json as? [[String : AnyObject]] else {return}
                     
                     for s in subject {
-                        let name = s["title"] as? NSString
-                        self.names.append(String(name))
-                        let desc = s["desc"] as? NSString
-                        self.descrs.append(String(desc))
-                        let questions = s["questions"] as! NSArray
+                        let name = s["title"] as? String
+                        self.names.append(name!)
+                        let desc = s["desc"] as? String
+                        self.descrs.append(desc!)
+                        let questions = s["questions"]
 
-                        var questionObjs = [Question]()
-                        for q in questions {
-                            let qtext = q["text"] as? NSString
-                            let qanswer = q["answer"] as? NSString
-                            let qanswers = q["answers"] as! NSArray
-                            var answerstringarray = [String]()
-                            for individual in qanswers {
-                                answerstringarray.append(String(individual))
-                            }
-                            let inputquestion : Question = Question(text: String(qtext), answer: String(qanswer!), choices: answerstringarray)
+                        var questionObjs : [Question] = []
+                        
+                        for q in questions as! NSArray {
+                            let text = q["text"] as! String
+                            let correctAnswerInt = q["answer"] as! String
+                            let answerList = q["answers"] as! [String]
+                            let correctAnswer = answerList[(Int(correctAnswerInt)! - 1)]
+                            let inputquestion : Question = Question(text: text, answer: correctAnswer, choices: answerList)
                             questionObjs.append(inputquestion)
                         }
                         let inputtopic: Topic = Topic(subject: String(name), desc: String(desc), questions: questionObjs)

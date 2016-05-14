@@ -90,7 +90,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.subject.text = subjects[indexPath.row]
         cell.subtitle.text = subtitle[indexPath.row]
         cell.photo.image = images[indexPath.row]
-                return cell
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
