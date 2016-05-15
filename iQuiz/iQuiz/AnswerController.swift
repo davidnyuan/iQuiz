@@ -59,7 +59,11 @@ class AnswerController: UIViewController {
             SecondVC.right = self.right
             self.presentViewController(SecondVC, animated: false, completion: nil)
         } else {
-            NSLog("bump")
+            let FinalVC = self.storyboard?.instantiateViewControllerWithIdentifier("SummaryC") as! SummaryController
+            FinalVC.subjectTitle = self.subjectTitle
+            FinalVC.right = self.right
+            FinalVC.total = self.totalQuestions
+            self.presentViewController(FinalVC, animated: false, completion: nil)
         }
     }
     

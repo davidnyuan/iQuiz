@@ -24,12 +24,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     @IBAction func settings(sender: AnyObject) {
         let alertController : UIAlertController = UIAlertController(title: "Alert!", message: "Settings go here.", preferredStyle: .Alert)
-        let okAction : UIAlertAction = UIAlertAction(title: "Okay", style: .Default, handler: dismissAlert)
+        let okAction : UIAlertAction = UIAlertAction(title: "Okay", style: .Default, handler: nil)
         
         alertController.addAction(okAction)
         
         alertController.addTextFieldWithConfigurationHandler { (textField: UITextField!) -> Void in
-            textField.placeholder = "Enter URL to retrieve information."
+            textField.placeholder = "Link for JSON"
         }
         
         let retrieveAction : UIAlertAction = UIAlertAction(title: "Check Now", style: .Cancel, handler: {[weak self]
@@ -40,7 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 if enteredText != nil {
                     URLToGo.targetURL = enteredText!
                 } else {
-                    URLToGo.targetURL = "http://tednewardsandbox.site44.cÇom/questions.json"
+                    URLToGo.targetURL = "http://tednewardsandbox.site44.com/questions.json"
                 }
                 self!.tableView.reloadData()
             }

@@ -11,6 +11,7 @@
 		5B258D191CE47BB60097B925 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B258D181CE47BB60097B925 /* Topic.swift */; };
 		5B258D1B1CE47C0D0097B925 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B258D1A1CE47C0D0097B925 /* Question.swift */; };
 		5B7503131CE3FE0F00B56C6E /* AnswerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B7503121CE3FE0F00B56C6E /* AnswerController.swift */; };
+		5BC6914E1CE7C5E300AFC448 /* SummaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BC6914D1CE7C5E300AFC448 /* SummaryController.swift */; };
 		5BD469DA1CE2F347001DA4B8 /* QuestionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BD469D91CE2F347001DA4B8 /* QuestionController.swift */; };
 		74AC9DC31CD9D24E003C9797 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74AC9DC21CD9D24E003C9797 /* AppDelegate.swift */; };
 		74AC9DC81CD9D24E003C9797 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74AC9DC61CD9D24E003C9797 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		5B258D181CE47BB60097B925 /* Topic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		5B258D1A1CE47C0D0097B925 /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		5B7503121CE3FE0F00B56C6E /* AnswerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerController.swift; sourceTree = "<group>"; };
+		5BC6914D1CE7C5E300AFC448 /* SummaryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryController.swift; sourceTree = "<group>"; };
 		5BD469D91CE2F347001DA4B8 /* QuestionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionController.swift; sourceTree = "<group>"; };
 		74AC9DBF1CD9D24E003C9797 /* iQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74AC9DC21CD9D24E003C9797 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				5B258D181CE47BB60097B925 /* Topic.swift */,
 				74AC9DFE1CDB037B003C9797 /* TableViewCell.swift */,
 				74AC9DC61CD9D24E003C9797 /* Main.storyboard */,
+				5BC6914D1CE7C5E300AFC448 /* SummaryController.swift */,
 				5B7503121CE3FE0F00B56C6E /* AnswerController.swift */,
 				5BD469D91CE2F347001DA4B8 /* QuestionController.swift */,
 				74AC9DC91CD9D24E003C9797 /* Assets.xcassets */,
@@ -283,6 +286,7 @@
 				74AC9DC31CD9D24E003C9797 /* AppDelegate.swift in Sources */,
 				74AC9DF91CDA5DA4003C9797 /* ViewController.swift in Sources */,
 				5BD469DA1CE2F347001DA4B8 /* QuestionController.swift in Sources */,
+				5BC6914E1CE7C5E300AFC448 /* SummaryController.swift in Sources */,
 				5B7503131CE3FE0F00B56C6E /* AnswerController.swift in Sources */,
 				5B258D191CE47BB60097B925 /* Topic.swift in Sources */,
 			);
